@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="home-container">
+  <h1>Welcome to SkillForge</h1>
+  <p>Your gateway to digital literacy and skill development.</p>
+
+  <div class="sections">
+    <div class="section-card">
+      <h2>Digital Literacy</h2>
+      <p>Learn how to use smartphones, internet, social media, email, and more.</p>
+      <a href="{{ url_for('literacy') }}" class="button">Explore Literacy</a>
+    </div>
+
+    <div class="section-card">
+      <h2>Skill Development</h2>
+      <p>Build practical skills like typing, coding, communication, and more.</p>
+      <a href="{{ url_for('skills') }}" class="button">Explore Skills</a>
+    </div>
+
+    <div class="section-card">
+      <h2>Quiz</h2>
+      <p>Test your knowledge after learning through the modules.</p>
+      <a href="{{ url_for('quiz') }}" class="button">Take the Quiz</a>
+    </div>
+
+    <div class="section-card">
+      <h2>Certificate</h2>
+      <p>Get your certificate after successfully completing the quiz.</p>
+      <a href="{{ url_for('certificate') }}" class="button">View Certificate</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

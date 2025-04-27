@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Quiz Result</h1>
+
+{% if score is not none %}
+    <p>Your score: {{ score }} /3</p>
+
+    {% if score == 3 %}
+        <p>🎉 Excellent! You answered all questions correctly.</p>
+    {% elif score == 2 %}
+        <p>👍 Good job! You got 2 out of 3. Keep learning!</p>
+    {% else %}
+        <p>💡 Don’t worry! Keep practicing and you’ll improve.</p>
+    {% endif %}
+
+    <a href="{{ url_for('certificate') }}">Get your certificate</a>
+{% else %}
+    <p>No quiz answers found. Please try the quiz again.</p>
+    <a href="{{ url_for('quiz') }}">Back to Quiz</a>
+{% endif %}
+{% endblock %}

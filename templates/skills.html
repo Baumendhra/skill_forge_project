@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Skill Development</h1>
+
+<h2>Learning Basic Computer Skills</h2>
+<img src="{{ url_for('static', filename='images/computer-skills.jpg') }}" alt="Basic Computer Skills" style="width: 50%; max-width: 200px;">
+<p>In this section, we will teach you basic computer skills like typing, using a mouse, and interacting with the desktop environment. Follow these simple steps:</p>
+<ul>
+  <li>Step 1: Sit comfortably in front of the computer with your hands on the keyboard and mouse.</li>
+  <li>Step 2: Use the mouse to move the pointer on the screen. Left-click to select things.</li>
+  <li>Step 3: To type, place your fingers on the home row keys and press the letters to type words.</li>
+  <li>Step 4: Practice using the keyboard and mouse to navigate through different programs.</li>
+</ul>
+
+<audio controls>
+  <source src="{{ url_for('static', filename='audio/computer-skills-narration.mp3') }}" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<h2>Using Office Software</h2>
+<img src="{{ url_for('static', filename='images/office-software.jpg') }}" alt="Using Office Software" style="width: 50%; max-width: 200px;">
+<p>Learn how to use office software like Microsoft Word, Excel, and PowerPoint. These programs help you create documents, spreadsheets, and presentations.</p>
+<ul>
+  <li>Step 1: Open Microsoft Word to create a document. Start by clicking "File" then "New".</li>
+  <li>Step 2: Type your content in the blank document. You can format text using the toolbar.</li>
+  <li>Step 3: Save the document by clicking "File" and then "Save". Choose a location on your computer.</li>
+  <li>Step 4: In Excel, you can create spreadsheets by clicking cells and entering data.</li>
+</ul>
+
+<audio controls>
+  <source src="{{ url_for('static', filename='audio/office-software-narration.mp3') }}" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<h2>Basic Coding Skills</h2>
+<iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+</iframe>
+<p>Watch this video to get started with basic coding and programming skills. In this tutorial, we will explain how to write a simple Python program.</p>
+
+<h2>Creating a Resume</h2>
+<img src="{{ url_for('static', filename='images/resume-tutorial.jpg') }}" alt="Creating a Resume" style="width: 50%; max-width: 200px;">
+<p>A good resume helps you get noticed by employers. Here’s how to create one using word processors:</p>
+<ul>
+  <li>Step 1: Open a word processor like Microsoft Word or Google Docs.</li>
+  <li>Step 2: Choose a resume template from the available options.</li>
+  <li>Step 3: Fill in your details such as your name, education, skills, and experience.</li>
+  <li>Step 4: Save your resume and convert it to a PDF file before sending it to employers.</li>
+</ul>
+
+<audio controls>
+  <source src="{{ url_for('static', filename='audio/resume-tutorial-narration.mp3') }}" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Quiz</h1>
+
+<p>Answer the following questions to test your knowledge:</p>
+
+<form method="POST" action="{{ url_for('quiz') }}">
+    <div class="question">
+        <label>1. What does a computer mouse do?</label><br>
+        <input type="radio" name="q1" value="a"> It helps type words<br>
+        <input type="radio" name="q1" value="b"> It helps navigate and click<br>
+        <input type="radio" name="q1" value="c"> It displays images<br>
+    </div>
+
+    <div class="question">
+        <label>2. Which app is used to create documents?</label><br>
+        <input type="radio" name="q2" value="a"> Paint<br>
+        <input type="radio" name="q2" value="b"> Excel<br>
+        <input type="radio" name="q2" value="c"> Word<br>
+    </div>
+
+    <div class="question">
+        <label>3. What is net banking used for?</label><br>
+        <input type="radio" name="q3" value="a"> Shopping<br>
+        <input type="radio" name="q3" value="b"> Online transactions<br>
+        <input type="radio" name="q3" value="c"> Playing games<br>
+    </div>
+
+    <input type="Submit" value="Submit">
+</form>
+@app.route('/result')
+def result():
+    return render_template('result.html')
+{% endblock %}

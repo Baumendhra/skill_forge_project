@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Digital Literacy</h1>
+
+<h2>How to Operate a Mobile Phone</h2>
+<img src="{{ url_for('static', filename='images/turn-on-phone.jpg') }}" alt="Turning on the mobile phone" style="width: 50%; max-width: 200px;">
+<p>In this tutorial, we will guide you on how to operate a mobile phone. Follow these steps to get started:</p>
+<ul>
+  <li>Step 1: Press and hold the power button on your mobile phone.</li>
+  <li>Step 2: Once the phone vibrates or shows the brand logo, release the button.</li>
+  <li>Step 3: You will be greeted with a lock screen. Swipe up to unlock the phone.</li>
+  <li>Step 4: Find and tap on the phone icon to make calls or the messaging app to send messages.</li>
+</ul>
+<audio controls>
+  <source src="{{ url_for('static', filename='audio/turn-on-phone-narration.mp3') }}" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<h2>Using a Web Browser</h2>
+<img src="{{ url_for('static', filename='images/web-browser.jpg') }}" alt="Using a web browser" style="width: 50%; max-width: 200px;">
+<p>A web browser allows you to access the internet and search for information. Here are the steps:</p>
+<ul>
+  <li>Step 1: Open the browser app (e.g., Chrome, Safari).</li>
+  <li>Step 2: Tap the address bar at the top and type a website address (e.g., www.google.com).</li>
+  <li>Step 3: Hit Enter or tap the search button to open the website.</li>
+  <li>Step 4: You can also use the search bar to find specific topics or websites.</li>
+</ul>
+<audio controls>
+  <source src="{{ url_for('static', filename='audio/web-browser-narration.mp3') }}" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<h2>Net Banking Tutorial</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YQjo3hsBF4w?si=LtTYeyO-Vdp3-eJP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p>Watch this video to learn how to use net banking securely and effectively.</p>
+
+<h2>Using Social Media</h2>
+<img src="{{ url_for('static', filename='images/social-media.jpg') }}" alt="Using Social Media" style="width: 50%; max-width: 200px;">
+<p>Social media platforms allow you to connect with people and share content. Here’s how to get started:</p>
+<ul>
+  <li>Step 1: Download a social media app like Facebook or Instagram from the app store.</li>
+  <li>Step 2: Open the app and create an account by providing your email and a password.</li>
+  <li>Step 3: Once logged in, you can follow friends, share photos, and comment on posts.</li>
+  <li>Step 4: Always be careful about what personal information you share online.</li>
+</ul>
+<audio controls>
+  <source src="{{ url_for('static', filename='audio/social-media-narration.mp3') }}" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<h2>Email Tutorial</h2>
+<img src="{{ url_for('static', filename='images/email.jpg') }}" alt="Email Tutorial" style="width: 50%; max-width: 200px;">
+<p>Learn how to create and use an email account for communication:</p>
+
+<h3>How to Create an Email Account</h3>
+<ol>
+  <li>Go to <a href="https://www.gmail.com" target="_blank">www.gmail.com</a></li>
+  <li>Click on "Create account"</li>
+  <li>Fill in your name, username, and password</li>
+  <li>Follow the on-screen instructions to verify your phone number</li>
+  <li>Complete the steps and your account will be created!</li>
+</ol>
+
+<h3>How to Send an Email</h3>
+<ol>
+  <li>Log in to Gmail</li>
+  <li>Click the "Compose" button</li>
+  <li>Enter the recipient's email, subject, and message</li>
+  <li>Click "Send"</li>
+</ol>
+
+<audio controls>
+  <source src="{{ url_for('static', filename='audio/email-tutorial.mp3') }}" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+{% endblock %}
