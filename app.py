@@ -23,7 +23,7 @@ def chat():
 
 
 @app.route('/')
-def home():
+def home_1():
     return render_template('home.html')
 
 @app.route('/index')
