@@ -2,28 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Skill Forge Chatbot</title>
+    <title>SkillForge AI Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+        #chat-box {
+            width: 400px;
+            height: 500px;
+            border: 2px solid #333;
+            padding: 10px;
+            overflow-y: auto;
+            background: #fff;
+            margin-bottom: 15px;
+        }
+        #user-input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #send-btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        #send-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
-    <h1>Talk to SkillBot!</h1>
-    <div id="chat-box"></div>
 
-    <input type="text" id="user-input" placeholder="Type your question here..." />
-    <button onclick="sendMessage()">Send</button>
+    <h1>Welcome to SkillForge Chatbot!</h1>
+
+    <div id="chat-box">
+        <p><strong>SkillBot:</strong> Hello! 👋 What skill would you like to learn today?</p>
+    </div>
+
+    <div>
+        <input type="text" id="user-input" placeholder="Type your message..." />
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+    </div>
 
     <script>
         async function sendMessage() {
-            const message = document.getElementById('user-input').value;
-            const response = await fetch('/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message })
-            });
-            const data = await response.json();
+            const message = document.getElementById('user-input').value.trim();
+            if (!message) return; // prevent empty messages
+
+            // Show user message immediately
             document.getElementById('chat-box').innerHTML += `<p><strong>You:</strong> ${message}</p>`;
-            document.getElementById('chat-box').innerHTML += `<p><strong>SkillBot:</strong> ${data.reply}</p>`;
             document.getElementById('user-input').value = '';
+
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: message })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                document.getElementById('chat-box').innerHTML += `<p><strong>SkillBot:</strong> ${data.reply}</p>`;
+                document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight; // Auto-scroll
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('chat-box').innerHTML += `<p style="color:red;"><strong>Error:</strong> Unable to reach server.</p>`;
+            }
         }
     </script>
+
 </body>
 </html>
