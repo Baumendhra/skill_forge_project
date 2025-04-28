@@ -7,7 +7,7 @@ openai.api_key = "sk-proj-WbS7qtL6QUckSqhBSkAhLPBDb_vGcGQu2ciQECNrFPm-VWeTtFtHOr
 
 @app.route('/chat', methods=['POST'])
 def chat():
-    user_message = request['message']
+    user_message = request.json['message']
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
