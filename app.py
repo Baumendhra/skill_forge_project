@@ -1,24 +1,26 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
-import openai
+from flask import Flask, render_template, request, redirect, url_for,jsonify
 
 app = Flask(__name__)
 
-openai.api_key = "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"
+@app.route("/")
+def home():
+    return render_template("chat.html")
 
-@app.route('/chat', methods=['POST'])
+# Route for chatbot backend (handling user message)
+@app.route("/chat", methods=["POST"])
 def chat():
     user_message = request.json['message']
 
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        message=[
-            {"roles": "system", "content": "You are a helpfull skill-learning assistant."},
-            {"roles": "user", "content": user_message}
-        ]
-    )
+    # Simple Bot logic (You can make this smarter later)
+    if "web development" in user_message.lower():
+        bot_response = "Web Development includes HTML, CSS, JS, and frameworks like React."
+    elif "data science" in user_message.lower():
+        bot_response = "Data Science covers Python, Machine Learning, and Data Analysis!"
+    else:
+        bot_response = "Sorry, I am still learning. Please ask about skills!"
 
-    ai_reply = response['choices'][0]['message']['content']
-    return jsonify({'reply': ai_reply})
+    return jsonify({"response": bot_response})
+
 
 @app.route('/')
 def home():
