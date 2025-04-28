@@ -1,0 +1,13 @@
+(venv) D:\skill_forge_project>python app.py
+Traceback (most recent call last):
+  File "D:\skill_forge_project\app.py", line 25, in <module>
+    @app.route('/')
+     ^^^^^^^^^^^^^^
+  File "D:\venv\Lib\site-packages\flask\sansio\scaffold.py", line 362, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "D:\venv\Lib\site-packages\flask\sansio\scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\venv\Lib\site-packages\flask\sansio\app.py", line 657, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: home
