@@ -1,6 +1,24 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
+import openai
 
 app = Flask(__name__)
+
+openai.api_key = "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"
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    user_message = request['message']
+
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        message=[
+            {"roles": "system", "content": "You are a helpfull skill-learning assistant."},
+            {"roles": "user", "content": user_message}
+        ]
+    )
+
+    ai_reply = response['choices'][0]['message']['content']
+    return jsonify({'reply': ai_reply})
 
 @app.route('/')
 def home():
@@ -41,6 +59,11 @@ def result():
 @app.route('/certificate')
 def certificate():
     return render_template('certificate.html')
+
+@app.route('/chat-ui')
+def chat_ui():
+    return render_template('chat.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
